@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px"
+	 height="300px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+	<defs>
+		<style type="text/css">
+		<![CDATA[
+			*{stroke:#666666;}
+			.proper{fill:#FCEE21;}
+			.sunstuff{stroke-miterlimit:10;}
+			.sun-feature-detail{fill:none;stroke-miterlimit:10;}
+			.eye-highlight{stroke:none;fill:#FFFFFF;}
+			.eye-iris{fill:#666666;stroke-miterlimit:10;}
+		]]>
+		</style>
+		<symbol  id="Sun-flare" viewBox="-11 45.646 34 92.08">
+			<path class="proper sunstuff" d="M15.332,46c0,0-9.472,11.056-5,20c5,10,2.891,14.114,0.668,20c-5.668,15-2.064,18.601-0.74,25
+				C13.061,124.547,20.332,136,20.332,136s-15-10-20.666-30c-2.215-7.817,0.666-14.917,0.666-20c0-10.529-4.641-13.589-5-20
+				c-0.509-9.117-2.093-17.093-5-20"/>
+		</symbol>
+	</defs>
+	<g id="Sunstuff">
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(1 0 0 -1 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(0.866 0.5 0.5 -0.866 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(0.5 0.866 0.866 -0.5 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(0 1 1 0 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(-0.5 0.866 0.866 0.5 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(-0.866 0.5 0.5 0.866 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(-1 0 0 1 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(-0.866 -0.5 -0.5 0.866 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(-0.5 -0.866 -0.866 0.5 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(0 -1 -1 0 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(0.5 -0.866 -0.866 -0.5 150 150)" style="overflow:visible;"/>
+		<use xlink:href="#Sun-flare"  width="34" height="92.08" x="-11" y="45.646" transform="matrix(0.866 -0.5 -0.5 -0.866 150 150)" style="overflow:visible;"/>
+		<circle class="proper sunstuff" cx="150" cy="150" r="50"/>
+	</g>
+	<g id="Features">
+		<path class="sun-feature-detail" d="M134.75,150.25c0,5,4.75,5.25,4.75,5.25V155c0-5,8.994,0.473,10.25,0.5S160,150,160,155
+			c0,0.5-0.062,0.5-0.062,0.5s4.906-0.125,4.906-5.125"/>
+		<path class="sun-feature-detail" d="M120,128c10-5,15-5,20,0"/>
+		<circle class="eye-iris" cx="130" cy="130" r="5"/>
+		<path class="sun-feature-detail" d="M180,128c-10-5-15-5-20,0"/>
+		<circle class="eye-iris" cx="170" cy="130" r="5"/>
+		<circle class="eye-highlight" cx="133" cy="128" r="2"/>
+		<circle class="eye-highlight" cx="173" cy="128" r="2"/>
+		<path class="sun-feature-detail" d="M130,170c0,0,5,5,10,5s5-5,10-5s7.5,5,10,5c5,0,10-5,10-5"/>
+	</g>
+</svg>

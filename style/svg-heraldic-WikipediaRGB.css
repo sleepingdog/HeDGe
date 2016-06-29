@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* CSS Document */
+/* SVG and HTML styles for heraldic devices: Wikpedia darker RGB version. */
+
+.none { fill: #CCCCCC; }
+.Argent { fill: #E0E0E0; background-color: #E0E0E0; }	
+.Azure { fill: #0000FF; background-color: #0000FF; }	
+.Gules { fill: #FF0000; background-color: #FF0000; }	
+.Or { fill: #FFE000; background-color: #FFE000; }	
+.Purpure { fill: #800080; background-color: #800080; }	
+.Sable { fill: #000000; background-color: #000000; }	
+.Vert { fill: #00C000; background-color: #00C000; }	
+.Tenny { fill: #804000; background-color: #804000; }	
+.Brown { fill: #787800; background-color: #787800; }	
+
+optgroup[label="metal"] > option:after, optgroup[label="colour"] > option:after, optgroup[label="stains/others"] > option:after {
+	/*content: url(../assets/images/shieldicon.png);*/
+	content: " ⧫";
+}
+
+option[value="Argent"]:after {
+	color: #E0E0E0;/**/
+}
+option[value="Azure"]:after {
+	color: #0000FF;/* same */
+}
+option[value="Gules"]:after {
+	color: #FF0000;/* same */
+}
+option[value="Or"]:after {
+	color: #FFE000;/**/
+}
+option[value="Purpure"]:after {
+	color: #800080;/**/
+}
+option[value="Sable"]:after {
+	color: #000000;/* same */
+}
+option[value="Vert"]:after {
+	color: #00C000;/**/
+}
+option[value="Tenny"]:after {
+	color: #804000;/**/
+}
+option[value="Brown"]:after {
+	color: #787800;/* not on Wikipedia */
+}

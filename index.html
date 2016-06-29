@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" /><!-- Query: new, simpler HTML 5 meta with only charset? -->
+<title>Heraldic Device Generator (HeDGe)</title>
+<meta name="keywords" content="heraldry, device, shield, blazon, SVG, JavaScript, XSLT, HTML5, CSS, XML">
+<meta name="description" content="HeDGe is an online tool for creating your own heraldic device (a shield or lozenge), choosing tinctures and charges, for your personal use and amusement.">
+<link href="style/thrColLiqHdr.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
+ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
+</style>
+<![endif]-->
+<link href="style/svg-heraldic-brightRGB.css" type="text/css" title="bright colours" rel="stylesheet" />
+<link href="style/svg-heraldic-WikipediaRGB.css" type="text/css" title="Wikipedia colours (darker)" rel="alternate stylesheet" />
+<link href="style/svg-heraldic-InkscapeRGB.css" type="text/css" title="Inkscape/GIMP colours (darkest)" rel="alternate stylesheet" />
+<link rel="canonical" href="http://www.heraldicdevice.org.uk"/>
+<!--
+<script type="text/javascript" src="scripts/svg_todataurl.js"></script>
+-->
+<script type="text/javascript" src="scripts/device.js"></script>
+</head>
+<body onLoad="initialize();">
+<div class="container">
+  <header>
+  	<!--<img src="assets/images/sdshield64.png" alt="Heraldic shield: Argent  dog dormant Brown." width="64" height="64" />-->
+    <h1>Heraldic Device Generator (HeDGe)
+    	<span class="version">(0.7.2.172 alpha)</span>
+    </h1>
+    <a href="http://www.w3.org/html/logo/"><img src="assets/images/HTML5_Logo_64.png" alt="HTML 5 shield logo." width="64" height="64" /></a>
+    <form id="gallery" name="gallery" onSubmit="return false;"><!--
+    	<input type="image" src="assets/images/shieldicon.png" alt="Submit" width="80" height="92" />-->
+    </form>
+  </header>
+    <form name="frmDesign" class="sidebar1">
+      <h2>Design</h2>
+      <ul class="nav">
+        <li>Field
+          <select name="fieldtincture" onChange="updateDevice('field','tincture',this.value);">
+            <option value="none">Choose tincture:</option>
+            <optgroup label="metal">
+              <option value="Argent">Argent</option>
+              <option value="Or">Or</option>
+            </optgroup>
+            <optgroup label="colour">
+              <option value="Azure">Azure</option>
+              <option value="Gules">Gules</option>
+              <option value="Purpure">Purpure</option>
+              <option value="Sable">Sable</option>
+              <option value="Vert">Vert</option>
+            </optgroup>
+            <optgroup label="stains/others">
+              <option value="Tenny">Tenny</option>
+              <option value="Brown">Brown</option>
+            </optgroup>
+          </select>
+        </li>
+        <li>Divisions
+          <select name="division" onChange="updateDevice('divisions','type',this.value); document.getElementById('divisiontincture').style.display = 'block';">
+            <optgroup label="Choose division:">
+              <option selected="selected">none</option>
+              <option>per pale</option>
+              <option>per fess</option>
+              <option>per bend</option>
+              <!--
+              <option>per bend sinister</option>
+              -->
+              <option>per chevron</option>
+              <option>quarterly</option>
+              <option>gyronny</option>
+              <option>per saltire</option>
+            </optgroup>
+          </select>
+          <select id="divisiontincture" name="divisiontincture" onChange="updateDevice('divisions','tincture',this.value);" style="display: none;">
+            <option value="none">Choose tincture:</option>
+            <optgroup label="metal">
+              <option value="Argent">Argent</option>
+              <option value="Or">Or</option>
+            </optgroup>
+            <optgroup label="colour">
+              <option value="Azure">Azure</option>
+              <option value="Gules">Gules</option>
+              <option value="Purpure">Purpure</option>
+              <option value="Sable">Sable</option>
+              <option value="Vert">Vert</option>
+            </optgroup>
+            <optgroup label="stains/others">
+              <option value="Tenny">Tenny</option>
+              <option value="Brown">Brown</option>
+            </optgroup>
+          </select>
+        </li>
+        <li>Furs/patterns
+        <!--
+          <select name="furpattern" onChange="updateDevice('furpattern','type',this.value); document.getElementById('furpatterntincture').style.display = 'block';">
+            <optgroup label="Choose division:">
+              <option selected="selected">none</option>
+              <option>goutty</option>
+            </optgroup>
+          </select>
+          <select id="furpatterntincture" name="divisiontincture" onChange="updateDevice('furpattern','tincture',this.value);" style="display: none;">
+            <option value="none">Choose tincture:</option>
+            <optgroup label="metal">
+              <option value="Argent">Argent</option>
+              <option value="Or">Or</option>
+            </optgroup>
+            <optgroup label="colour">
+              <option value="Azure">Azure</option>
+              <option value="Gules">Gules</option>
+              <option value="Purpure">Purpure</option>
+              <option value="Sable">Sable</option>
+              <option value="Vert">Vert</option>
+            </optgroup>
+            <optgroup label="stains/others">
+              <option value="Tenny">Tenny</option>
+              <option value="Brown">Brown</option>
+            </optgroup>
+          </select>
+          -->
+         </li>
+        <li>Ordinaries
+          <select name="ordinary" onChange="updateDevice('ordinary','type',this.value); document.getElementById('ordinarytincture').style.display = 'block';">
+            <optgroup label="Choose ordinary:">
+            <option selected="selected">none</option>
+              <option>chief</option>
+              <option>pale</option>
+              <option>fess</option>
+              <option>barrulet</option>
+              <option>bend</option>
+              <option>bend sinister</option>
+              <option>riband</option>
+              <option>riband sinister</option>
+              <option>cross</option>
+              <option>fillet cross</option>
+              <option>saltire</option>
+              <option>fillet saltire</option>
+              <option>chevron</option>
+            </optgroup>
+          </select>
+          <select id="ordinarytincture" name="ordinarytincture" onChange="updateDevice('ordinary','tincture',this.value);" style="display: none;">
+            <option value="none">Choose tincture:</option>
+            <optgroup label="metal">
+              <option value="Argent">Argent</option>
+              <option value="Or">Or</option>
+            </optgroup>
+            <optgroup label="colour">
+              <option value="Azure">Azure</option>
+              <option value="Gules">Gules</option>
+              <option value="Purpure">Purpure</option>
+              <option value="Sable">Sable</option>
+              <option value="Vert">Vert</option>
+            </optgroup>
+            <optgroup label="stains/others">
+              <option value="Tenny">Tenny</option>
+              <option value="Brown">Brown</option>
+            </optgroup>
+          </select>
+        </li>
+        <li>Charges
+          <select id="chargemainmenu" name="chargemainmenu" onChange="updateDevice('charge', 'type', this.options[this.selectedIndex].text); document.getElementById('chargemaintincture').style.display = 'block';" >
+            <option value="none">Choose charge:</option>
+          </select>
+          <select id="chargemaintincture" name="chargemaintincture" onChange="updateDevice('charge','tincture',this.value);" style="display: none;">
+            <option value="none">Choose tincture:</option>
+            <option value="proper">proper</option>
+            <optgroup label="metal">
+              <option value="Argent">Argent</option>
+              <option value="Or">Or</option>
+            </optgroup>
+            <optgroup label="colour">
+              <option value="Azure">Azure</option>
+              <option value="Gules">Gules</option>
+              <option value="Purpure">Purpure</option>
+              <option value="Sable">Sable</option>
+              <option value="Vert">Vert</option>
+            </optgroup>
+            <optgroup label="stains/others">
+              <option value="Tenny">Tenny</option>
+              <option value="Brown">Brown</option>
+            </optgroup>
+          </select>
+        </li>
+      </ul>
+    <!-- end .sidebar1 --></form>
+    <form name="frmDevice" class="content">
+      <label><input type="radio" name="devicetype" value="shield" id="devicetype_0" onChange="updateDevice('device','type',this.value);" checked="checked">Shield (male)</label>
+      <label><input type="radio" name="devicetype" value="lozenge" id="devicetype_1" onChange="updateDevice('device','type',this.value);">Lozenge (female)</label>
+      <div id="device">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          x="0px" y="0px" width="400px" height="460px" viewBox="0 0 400 460" xml:space="preserve">
+          <!-- id="device" style="enable-background:new 0 0 400 460;" -->
+          <defs>
+            <!--
+                <style type="text/css">
+                  path.none { fill: #CCCCCC; }
+                  path.Argent { fill: #FFFFFF; }	
+                  path.Azure { fill: #0000FF; }	
+                  path.Gules { fill: #FF0000; }	
+                  path.Or { fill: #FFFF00; }	
+                  path.Purpure { fill: #FF00FF; }	
+                  path.Sable { fill: #000000; }	
+                  path.Vert { fill: #00FF00; }	
+                </style>
+               -->
+          </defs>
+          <path id="field" class="none" style="stroke:#999999;stroke-miterlimit:10;" d="M398.715,40.996     c0.249-13.422,0.496-28.496,0.745-40.496c-132.973,0-265.947,0-398.92,0c0.249,12,0.498,26.081,0.747,39.253     c0.745,30.819,2.485,61.754,5.964,92.823c2.982,30.075,7.457,60.083,13.421,90.157c3.231,15.658,7.955,31.036,14.913,45.698     c12.427,27.094,28.583,52.178,48.715,75.294c18.144,20.63,37.034,41.004,56.669,60.39c19.387,19.14,39.271,37.526,59.651,55.173     c20.132-17.149,39.52-35.297,58.408-53.937c19.637-19.387,38.773-39.768,56.672-60.396c19.883-23.116,36.287-48.221,48.713-75.314     c6.961-14.662,11.932-30.072,14.915-45.731c5.716-30.074,10.437-60.016,13.421-90.09C396.229,102.751,397.969,72.064,398.715,40.996     z"/>
+        </svg>
+        <!-- placeholder for SVG shield and optional motto. -->
+      </div>
+    <!-- end .content --></form>
+    <form name="frmOutput" class="sidebar2">
+      <h2>Outputs</h2>
+      <ul>
+        <li>Blazon</li>
+        <li>XML
+          <textarea id="xmlSource" cols="20" rows="12" label="XML" readonly="readonly" title="application/xml" onClick="createNewWindow(this);"></textarea>
+        </li>
+        <li>SVG
+          <textarea id="svgSource" cols="20" rows="12" label="SVG" readonly="readonly" title="image/svg+xml" onClick="createNewWindow(this);"></textarea>
+        </li>
+        <li>Image
+        	<canvas id="canDevice" width="120" height="120">
+          	Your browser does not support canvas. Please upgrade to the latest version of Firefox, Chrome or Safari.
+          </canvas>
+        </li>
+        <li>3D</li>
+      </ul>
+      <!-- end .sidebar2 --></form>
+  <div class="footer">
+  	<h2>Notes</h2>
+  	<p>HeDGe is provided as is, for personal use and amusement. It does not purport to model the complexity of real heraldry, but tries to provide a simple way of creating devices keeping to a basic sub-set of heraldic rules.</p>
+  	<h2>Browser support</h2>
+  	<p>HeDGe should work in the latest versions of the following desktop web browsers:</p>
+  	<ul>
+  	  <li>Firefox;</li>
+  	  <li>Opera;</li>
+	  </ul>
+    <p>Unfortunately, HeDGe will not yet work in the following web browsers:</p>
+    <ul>
+  	  <li>Safari;</li>
+  	  <li>Chrome;</li>
+    </ul>
+    <p>which are based on webkit, which apparently has a <a href="https://bugs.webkit.org/show_bug.cgi?id=10313">bug</a> preventing access to the charge library.</p>
+    <p>It is unlikely to work with current versions of Internet Explorer, which lack support for SVG and other standards.</p>
+		<h2>Acknowledgements</h2>
+  	<p>Grateful acknowledgements are made to:</p>
+    <ol>
+    	<li><a href="http://en.wikipedia.org/wiki/Lion_(heraldry)">lions</a>
+      	by <a href="http://commons.wikimedia.org/wiki/User:Sodacan">Sodacan</a>,
+        licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution-Share Alike 3.0 Unported</a> license.</li>
+    	<li><a href="http://en.wikipedia.org/wiki/Lion_(heraldry)">eagle</a>
+      	by <a href="http://commons.wikimedia.org/wiki/User:F_l_a_n_k_e_r">F l a n k e r</a>,
+        licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution-Share Alike 3.0 Unported</a> license.</li>
+      <li><a href="http://www.openclipart.org">dragon</a> from Flag of Wales,
+      	by Tobias Jakobs,
+      <a href="http://web.resource.org/cc/PublicDomain">Public Domain</a>.</li>
+<!--
+      <li><a href="https://github.com/sampumon/SVG.toDataURL">SVG.toDataURL</a>
+        Copyright (c) 2010,2012 Sampu-mon &amp; Mat-san</li>
+      <li><a href="http://code.google.com/p/canvg/" title="Javascript SVG parser and renderer on Canvas">canvg</a> Copyright © 2010–2011 <a href="mailto:gabelerner@gmail.com">Gabe Lerner</a>.</li>
+-->
+    </ol>
+  	<h2>Bibliography</h2>
+  	<ul>
+  	  <li>Slater, Stephen. The Complete Book of Heraldry: An international history of heraldry and its contemporary uses. London: Lorenz Books, 2002.</li>
+	  </ul>
+		<h2>Source code</h2>
+		<p>The <a href="https://github.com/sleepingdog/HeDGe">source code for HeDGe is now on Github</a>.</p>
+    <p>A <a href="http://www.sleepingdog.org.uk">Sleeping Dog</a> web production (last updated <time pubdate="true">2016-06-29</time>).</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>

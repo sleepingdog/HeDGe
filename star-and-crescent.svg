@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="300px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+	<defs>
+		<style type="text/css">
+		<![CDATA[
+			*{stroke:#666666;}
+			.proper{fill:#FFFFFF;}
+			.starstuff{stroke-miterlimit:10;}
+		]]>
+		</style>
+	</defs>
+	<path class="starstuff proper" d="M259.422,100.667C259.804,104.393,260,108.173,260,112c0,60.752-49.248,110-110,110
+		c-60.751,0-110-49.248-110-110c0-3.827,0.196-7.607,0.578-11.333C33.783,115.715,30,132.416,30,150c0,66.274,53.726,120,120,120
+		s120-53.726,120-120C270,132.416,266.218,115.715,259.422,100.667z"/>
+	<polygon class="starstuff proper" points="167.239,14.592 170.774,47.297 202.972,54.041 172.96,67.51 176.496,100.215 154.412,75.834 
+		124.4,89.303 140.763,60.766 118.679,36.386 150.876,43.129 "/>
+</svg>

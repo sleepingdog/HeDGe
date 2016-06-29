@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.sleepingdog.org.uk/heraldry" targetNamespace="http://www.sleepingdog.org.uk/heraldry/charges"
+	xmlns:hedml="http://www.sleepingdog.org.uk/heraldry"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.sleepingdog.org.uk/heraldry" schemaLocation="hedml-basic.xsd"/>
+	
+	<xs:annotation>
+		<xs:documentation>
+			Heraldic charge set:
+			  lion
+			which acts as a library for Heraldic Device Markup Language, Basic Version (HeDML Basic) 0.1.1
+			Created 2011-01-04
+			Modified 2011-01-06
+			by Sleeping Dog
+			www.sleepingdog.org.uk
+			models a basic shield-like device, with colours, shapes, patterns and symbols derived from heraldry.
+			All of the SVG graphics in this set are:
+			  created by Sodacan
+					http://commons.wikimedia.org/wiki/User:Sodacan
+				licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+					http://creativecommons.org/licenses/by-sa/3.0/deed.en
+		</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="lion-rampant">
+		<xs:complexContent>
+			<xs:restriction base="hedml:chargeType">
+				<xs:attribute name="type">
+					<xs:simpleType>
+						<xs:restriction base="xs:normalizedString">
+							<xs:enumeration value="lion rampant"></xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="subject" type="xs:string" use="optional" />
+				<xs:attribute name="attitude" type="xs:string" use="optional"/>	
+				<xs:attribute name="tincture" type="tinctureChargeType" />
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+
+</xs:schema>

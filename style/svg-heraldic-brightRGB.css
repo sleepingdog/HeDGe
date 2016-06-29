@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* CSS Document */
+/* SVG and HTML styles for heraldic devices: bright RGB version. */
+
+.none { fill: #CCCCCC; }
+.Argent { fill: #FFFFFF; background-color: #FFFFFF; }	
+.Azure { fill: #0000FF; background-color: #0000FF; }	
+.Gules { fill: #FF0000; background-color: #FF0000; }	
+.Or { fill: #FFFF00; background-color: #FFFF00; }	
+.Purpure { fill: #FF00FF; background-color: #FF00FF; }	
+.Sable { fill: #000000; background-color: #000000; }	
+.Vert { fill: #00FF00; background-color: #00FF00; }	
+.Tenny { fill: #FF9900; background-color: #FF9900; }	
+.Brown { fill: #787800; background-color: #787800; }	
+
+optgroup[label="metal"] > option:after, optgroup[label="colour"] > option:after, optgroup[label="stains/others"] > option:after {
+	/*content: url(../assets/images/shieldicon.png);*/
+	content: " ⧫";
+}
+
+option[value="Argent"]:after {
+	color: #FFFFFF;
+}
+option[value="Azure"]:after {
+	color: #0000FF;
+}
+option[value="Gules"]:after {
+	color: #FF0000;
+}
+option[value="Or"]:after {
+	color: #FFFF00;
+}
+option[value="Purpure"]:after {
+	color: #FF00FF;
+}
+option[value="Sable"]:after {
+	color: #000000;
+}
+option[value="Vert"]:after {
+	color: #00FF00;
+}
+option[value="Tenny"]:after {
+	color: #FF9900;
+}
+option[value="Brown"]:after {
+	color: #787800;
+}

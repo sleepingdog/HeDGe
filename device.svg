@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" x="0px" y="0px" width="400px" height="460px" viewBox="0 0 400 460">
+	<!-- id="device" style="enable-background:new 0 0 400 460;" -->
+<!--
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="device" x="0px" y="0px" width="400px" height="460px" viewBox="0 0 400 460" style="enable-background:new 0 0 400 460;" xml:space="preserve">
+-->
+	<defs>
+		<style type="text/css">
+			path.Argent { fill: #FFFFFF; }	
+			path.Azure { fill: #0000FF; }	
+			path.Gules { fill: #FF0000; }	
+			path.Or { fill: #FFFF00; }	
+			path.Purpure { fill: #FF00FF; }	
+			path.Sable { fill: #000000; }	
+			path.Vert { fill: #00FF00; }
+			.none { fill: none; stroke: #999999; stroke-miterlimit: 10; }
+		</style>
+	</defs>
+	<path id="field" class="none" d="M398.715,40.996     c0.249-13.422,0.496-28.496,0.745-40.496c-132.973,0-265.947,0-398.92,0c0.249,12,0.498,26.081,0.747,39.253     c0.745,30.819,2.485,61.754,5.964,92.823c2.982,30.075,7.457,60.083,13.421,90.157c3.231,15.658,7.955,31.036,14.913,45.698     c12.427,27.094,28.583,52.178,48.715,75.294c18.144,20.63,37.034,41.004,56.669,60.39c19.387,19.14,39.271,37.526,59.651,55.173     c20.132-17.149,39.52-35.297,58.408-53.937c19.637-19.387,38.773-39.768,56.672-60.396c19.883-23.116,36.287-48.221,48.713-75.314     c6.961-14.662,11.932-30.072,14.915-45.731c5.716-30.074,10.437-60.016,13.421-90.09C396.229,102.751,397.969,72.064,398.715,40.996     z"/>
+	<polygon id="lozenge" class="none" stroke-miterlimit="10" points="200.663,0.762 400.663,230.762 200.663,460.762 0.663,230.762 "/>
+</svg>

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* CSS Document */
+/* SVG and HTML styles for heraldic devices: Inkscape/GIMP RGB version. */
+
+.none { fill: #CCCCCC; }
+.Argent { fill: #C3C7C8; background-color: #C3C7C8; }	
+.Azure { fill: #0039A6; background-color: #0039A6; }	
+.Gules { fill: #DC281E; background-color: #DC281E; }	
+.Or { fill: #FFD200; background-color: #FFD200; }	
+.Purpure { fill: #B60A9B; background-color: #B60A9B; }	
+.Sable { fill: #000000; background-color: #000000; }	
+.Vert { fill: #009A3D; background-color: #009A3D; }	
+.Tenny { fill: #CB4F00; background-color: #CB4F00; }	
+.Brown { fill: #6A3327; background-color: #6A3327; }	
+
+optgroup[label="metal"] > option:after, optgroup[label="colour"] > option:after, optgroup[label="stains/others"] > option:after {
+	/*content: url(../assets/images/shieldicon.png);*/
+	content: " ⧫";
+}
+
+option[value="Argent"]:after {
+	color: #C3C7C8;
+}
+option[value="Azure"]:after {
+	color: #0039A6;
+}
+option[value="Gules"]:after {
+	color: #DC281E;
+}
+option[value="Or"]:after {
+	color: #FFD200;
+}
+option[value="Purpure"]:after {
+	color: #B60A9B;
+}
+option[value="Sable"]:after {
+	color: #000000;
+}
+option[value="Vert"]:after {
+	color: #009A3D;
+}
+option[value="Tenny"]:after {
+	color: #CB4F00;
+}
+option[value="Brown"]:after {
+	color: #6A3327;
+}

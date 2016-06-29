@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.sleepingdog.org.uk/heraldry" xmlns="http://www.sleepingdog.org.uk/heraldry">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.sleepingdog.org.uk/xml/schema/xml.xsd"/>
+	<xs:element name="device">
+		<xs:annotation>
+			<xs:documentation>
+				Heraldic Device Markup Language, Basic Version (HeDML Basic) 0.1.3
+				Created 2010-12-29 from HeDML Lite
+				Modified 2011-01-08
+				by Sleeping Dog
+				www.sleepingdog.org.uk
+				models a basic shield-like device, with colours, shapes, patterns and symbols derived from heraldry.
+				This software is licenced under the CC-GNU GPL (http://creativecommons.org/licenses/GPL/2.0/)
+				    <!-- /Creative Commons License -->
+				<!--
+    <rdf:RDF xmlns="http://web.resource.org/cc/"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+       <license rdf:resource="http://creativecommons.org/licenses/GPL/2.0/" />
+       <dc:type rdf:resource="http://purl.org/dc/dcmitype/Software" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/GPL/2.0/">
+    <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+       <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+       <requires rdf:resource="http://web.resource.org/cc/Notice" />
+       <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+       <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+       <requires rdf:resource="http://web.resource.org/cc/SourceCode" />
+    </License>
+    </rdf:RDF>
+    -->
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="field">
+					<xs:annotation>
+						<xs:documentation>
+							The field is the plain coloured background of the device.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="type">
+							<xs:annotation>
+								<xs:documentation>
+									There are no current values for field type other than 'none' at present.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="none"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attributeGroup ref="commonProperties"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="divisions">
+					<xs:annotation>
+						<xs:documentation>
+							This element divides the field up into coloured areas.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="division" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attributeGroup ref="commonProperties"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="type">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="none"/>
+									<xs:enumeration value="per pale"/>
+									<xs:enumeration value="per fess"/>
+									<xs:enumeration value="per bend"/>
+									<xs:enumeration value="per chevron"/>
+									<xs:enumeration value="quarterly"/>
+									<xs:enumeration value="gyronny"/>
+									<xs:enumeration value="per saltire" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attributeGroup ref="commonProperties"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="furpattern">
+					<xs:annotation>
+						<xs:documentation>
+							This element provides a coloured pattern for the field (but not the division, if present).
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="type">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="none"/>
+									<xs:enumeration value="ermine"/>
+									<xs:enumeration value="ermines"/>
+									<xs:enumeration value="vair"/>
+									<xs:enumeration value="goutty"/>
+									<xs:enumeration value="fusilly"/>
+									<xs:enumeration value="paly"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attributeGroup ref="commonProperties"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ordinary">
+					<xs:annotation>
+						<xs:documentation>
+							The ordinary overlays a coloured shape on top of the field, division and fur/pattern, if present.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="type">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="none"/>
+									<xs:enumeration value="pale"/>
+									<xs:enumeration value="fess"/>
+									<xs:enumeration value="bend"/>
+									<xs:enumeration value="chevron"/>
+									<xs:enumeration value="chief"/>
+									<xs:enumeration value="bordure"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attributeGroup ref="commonProperties"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="charge" type="chargeType">
+					<xs:annotation>
+						<xs:documentation>
+							The charge is a symbol that optionally appears over all the other layers.
+						</xs:documentation>
+					</xs:annotation>
+					<!-- 
+						<xs:complexType>
+						<xs:attribute name="type">
+						<xs:annotation>
+						<xs:documentation>
+						In HeDML Basic, the charge can only be selected from the prescribed list (or later libraries);
+						this is to make rendering simpler.
+						</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+						<xs:restriction base="xs:string">
+						<xs:enumeration value="none"/>
+						<xs:enumeration value="axe"/>
+						<xs:enumeration value="castle"/>
+						<xs:enumeration value="dragon"/>
+						<xs:enumeration value="glove"/>
+						<xs:enumeration value="knight"/>
+						<xs:enumeration value="laurel wreath"/>
+						<xs:enumeration value="lion rampant"/>
+						<xs:enumeration value="mermaid"/>
+						<xs:enumeration value="scales"/>
+						<xs:enumeration value="ship"/>
+						<xs:enumeration value="skull"/>
+						<xs:enumeration value="swan"/>
+						<xs:enumeration value="thistle"/>
+						<xs:enumeration value="wolf head"/>
+						</xs:restriction>
+						</xs:simpleType>
+						</xs:attribute>
+						<xs:attributeGroup ref="commonProperties">
+						<xs:annotation>
+						<xs:documentation>
+						In HeDML Basic, only the traditional set of tinctures are supported, plus a couple of extra colours
+						(Tenny and Brown).
+						However, if the tincture is set to 'none', the charge may appear in its natural colours,
+						depending on the implementation.
+						</xs:documentation>
+						</xs:annotation>
+						</xs:attributeGroup>
+						</xs:complexType>
+					-->
+				</xs:element>
+				<xs:element name="motto" type="text">
+				<xs:annotation>
+					<xs:documentation>
+						The motto may have an xml:lang attribute to declare the language.
+						At the moment, it may have any type of mixed content, like XHTML,
+						basically because I couldn't get the restriction from xs:string to work.
+					</xs:documentation>
+				</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="type">
+				<xs:annotation>
+					<xs:documentation>
+						At the moment, the only device types supported by HeDML Basic are 'shield' (male) or 'lozenge' (female).
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="shield"/>
+						<xs:enumeration value="lozenge"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="library">
+		<xs:annotation>
+			<xs:documentation>To list a sequence of sets of heraldic components, in the first instance: charges.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="charges" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>A set of charges to act as a graphics library.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="charge" type="chargeType" maxOccurs="unbounded" />
+						</xs:sequence>
+						<xs:attribute name="title" type="xs:normalizedString" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="title" type="xs:normalizedString" />
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="commonProperties">
+		<xs:attribute name="tincture" type="tinctureType">
+			<xs:annotation>
+				<xs:documentation>
+					Tincture (metals and colours), is currently restricted to a list of traditional heraldic values,
+					roughly corresponding to silver, blue, red, gold, purple, black and green; plus orange and brown.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="text">
+		<xs:complexContent mixed="true">
+			<xs:restriction base="xs:anyType">
+				<xs:sequence>
+					<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute ref="xml:lang"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="chargeType">
+		<xs:sequence>
+			<xs:element name="svgUrls" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>An optional sequence of URLs to try in turn to load a SVG graphic representing the charge.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="svgUrl" maxOccurs="3">
+							<xs:complexType>
+								<xs:attribute name="href" type="xs:anyURI" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:normalizedString" />
+		<xs:attribute name="subject" type="xs:string" use="optional" />
+		<xs:attribute name="attitude" type="xs:string" use="optional"/>	
+		<xs:attribute name="tincture" type="tinctureChargeType" />
+		<xs:attribute name="number" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="1" />
+					<xs:maxInclusive value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="position" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:normalizedString">
+					<xs:enumeration value="dexter chief" />
+					<xs:enumeration value="middle chief" />
+					<xs:enumeration value="sinister chief" />
+					<xs:enumeration value="honour" />
+					<xs:enumeration value="fess" />
+					<xs:enumeration value="nombril" />
+					<xs:enumeration value="dexter base" />
+					<xs:enumeration value="middle base" />
+					<xs:enumeration value="sinister base" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="tinctureType">
+		<xs:annotation>
+			<xs:documentation>
+				In HeDML Basic, only the traditional set of tinctures are supported, plus a couple of extra colours
+				(Tenny and Brown).
+				However, if the tincture is set to 'none', the charge may appear in its natural colours,
+				depending on the implementation.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none"/>
+			<xs:enumeration value="Argent"/>
+			<xs:enumeration value="Azure"/>
+			<xs:enumeration value="Gules"/>
+			<xs:enumeration value="Or"/>
+			<xs:enumeration value="Purpure"/>
+			<xs:enumeration value="Sable"/>
+			<xs:enumeration value="Vert"/>
+			<xs:enumeration value="Tenny"/>
+			<xs:enumeration value="Brown"/>			
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tinctureChargeType">
+		<xs:annotation>
+			<xs:documentation>
+				If the tincture is set to 'proper', the charge may appear in its natural (default) colours,
+				depending on the implementation.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none"/>
+			<xs:enumeration value="proper"/>
+			<xs:enumeration value="Argent"/>
+			<xs:enumeration value="Azure"/>
+			<xs:enumeration value="Gules"/>
+			<xs:enumeration value="Or"/>
+			<xs:enumeration value="Purpure"/>
+			<xs:enumeration value="Sable"/>
+			<xs:enumeration value="Vert"/>
+			<xs:enumeration value="Tenny"/>
+			<xs:enumeration value="Brown"/>			
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

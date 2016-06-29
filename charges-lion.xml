@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charges xmlns="http://www.sleepingdog.org.uk/heraldry"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sleepingdog.org.uk/heraldry http://www.heraldicdevice.org.uk/xml/schema/heraldry/hedml-basic.xsd"
+	title="lion">
+	<charge type="lion rampant" subject="lion" attitude="rampant">
+		<svgUrls>
+			<svgUrl href="lion-rampant.svg"/>
+			<svgUrl href="http://www.heraldicdevice.org.uk/xml/schema/heraldry/lion-rampant.svg"/>
+		</svgUrls>
+	</charge>
+	<charge type="lion passant" subject="lion" attitude="passant">
+		<svgUrls>
+			<svgUrl href="lion-passant.svg"/>
+			<svgUrl href="http://www.heraldicdevice.org.uk/xml/schema/heraldry/lion-passant.svg"/>
+		</svgUrls>
+	</charge>
+	<charge type="lion rampant guardant" subject="lion" attitude="rampant guardant">
+		<svgUrls>
+			<svgUrl href="lion-rampant-guardant.svg"/>
+			<svgUrl href="http://www.heraldicdevice.org.uk/xml/schema/heraldry/lion-rampant-guardant.svg"/>
+		</svgUrls>
+	</charge>
+</charges>
